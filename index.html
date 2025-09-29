@@ -1,0 +1,113 @@
+<!-- Save as: index.html -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>DeepSeek-style Chat UI — Demo (Grayscale)</title>
+    <meta name="description" content="Professional dark chat UI demo in grayscale." />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app" role="application" aria-label="AI chat interface demo">
+        <aside class="sidebar" aria-label="Conversations">
+            <div class="brand">
+                <div class="logo" aria-hidden="true">DS</div>
+                <div>
+                    <h1>DeepSeek AI</h1>
+                    <p>Professional chatbot UI</p>
+                </div>
+            </div>
+
+            <div class="search" role="search">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" aria-hidden="true"></svg>
+                <path d="M21 21l-4.35-4.35" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round" />
+                <circle cx="11" cy="11" r="6" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" />
+                </svg>
+                <input id="search" placeholder="Search conversations" aria-label="Search conversations" />
+            </div>
+
+            <div class="conversations" id="conversations" role="list">
+                <div class="conv active" role="listitem">
+                    <div class="dot">A</div>
+                    <div>
+                        <div style="display:flex;gap:6px;align-items:center"><strong>Product Demo</strong><span
+                                class="small muted">• 2h</span></div>
+                        <div class="small muted">Short summary of last message…</div>
+                    </div>
+                </div>
+                <div class="conv" role="listitem">
+                    <div class="dot">B</div>
+                    <div>
+                        <div style="display:flex;gap:6px;align-items:center"><strong>Support Ticket</strong><span
+                                class="small muted">• 1d</span></div>
+                        <div class="small muted">Issue with account login</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <button class="btn" title="New conversation">+ New</button>
+                <div style="display:flex;gap:8px">
+                    <button class="btn" title="Export">Export</button>
+                    <button class="btn" title="Settings">Settings</button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="chat-panel" aria-live="polite">
+            <div class="chat-top">
+                <div class="meta">
+                    <h2>Product Demo</h2>
+                    <p class="muted">Assistant • AI-Demo</p>
+                </div>
+
+                <div class="controls">
+                    <label class="small muted" for="model">Model</label>
+                    <select id="model" aria-label="Model selector">
+                        <option>DeepSeek</option>
+                        <option>gpt-demo-4</option>
+                        <option>soon..</option>
+                    </select>
+                    <button class="icon-btn" title="Clear conversation" id="clearBtn">Clear</button>
+                </div>
+            </div>
+
+            <div class="messages" id="messages" tabindex="0" aria-label="Conversation messages">
+                <!-- Example messages -->
+                <!-- <div class="msg" role="article" aria-label="Assistant message">
+                    <div class="avatar" aria-hidden="true">AI</div>
+                    <div class="bubble">Hello — I'm your assistant. Ask me anything about your product, documentation,
+                        or pricing.</div>
+                </div>
+
+                <div class="msg user" role="article" aria-label="Your message">
+                    <div class="avatar" aria-hidden="true">You</div>
+                    <div class="bubble">Show me a short product summary I can use on the landing page.</div>
+                </div> -->
+
+                <!-- <div class="msg" role="article" aria-label="Assistant message">
+                    <div class="avatar" aria-hidden="true">AI</div>
+                    <div class="bubble">Sure. DeepSeek AI is a lightweight, privacy-first chatbot platform that helps
+                        teams deliver instant, accurate answers for customers and internal users — with enterprise
+                        integrations and customizable behavior.</div>
+                </div> -->
+            </div>
+
+            <form class="chat-input" id="composer" action="#" onsubmit="return false;" aria-label="Send a message">
+                <button type="button" title="Attach file" class="icon-btn" aria-hidden="true">📎</button>
+                <textarea id="input" placeholder="Write a message and press Enter to send…"
+                    aria-label="Message input"></textarea>
+                <button class="send" id="sendBtn" aria-label="Send message" title="Send message">Send</button>
+            </form>
+        </main>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
