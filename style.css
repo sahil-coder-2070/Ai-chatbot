@@ -309,7 +309,7 @@ select, .icon-btn {
     .app {
         grid-template-columns: 1fr;
         grid-template-rows: auto 1fr;
-        height: 95%;
+        height: 80%;
     }
     .sidebar {
         flex-direction: row;
