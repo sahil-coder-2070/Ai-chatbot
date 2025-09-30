@@ -22,7 +22,9 @@ html, body {
 body {
     margin: 0;
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    background: radial-gradient(1000px 600px at 20% 20%, rgba(59, 130, 246, 0.08), transparent 40%), radial-gradient(800px 500px at 90% 80%, rgba(16, 185, 129, 0.08), transparent 40%), var(--bg);
+    background: radial-gradient(1000px 600px at 20% 20%, rgba(59, 130, 246, 0.08), transparent 40%), 
+                radial-gradient(800px 500px at 90% 80%, rgba(16, 185, 129, 0.08), transparent 40%), 
+                var(--bg);
     color: #e6eef8;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -165,7 +167,7 @@ body {
     flex-direction: column;
     padding: 22px;
     gap: 14px;
-    overflow: auto;
+    overflow: hidden;
     scroll-behavior: smooth;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent), rgba(255, 255, 255, 0.006);
 }
@@ -214,7 +216,7 @@ select, .icon-btn {
     border-radius: 12px;
     padding: 18px;
     flex: 1;
-    overflow: auto;
+    overflow-y: auto;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -298,13 +300,16 @@ select, .icon-btn {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
+/* ============== MOBILE FIXES ============== */
 @media (max-width: 768px) {
-    body { padding: 12px; }
+    body { 
+        padding: 10px; 
+        overflow: hidden; /* stop body scroll */
+    }
     .app {
         grid-template-columns: 1fr;
         grid-template-rows: auto 1fr;
-        height: auto;
-        min-height: 95vh;
+        height: 100vh; /* full screen */
     }
     .sidebar {
         flex-direction: row;
@@ -327,26 +332,31 @@ select, .icon-btn {
         padding: 8px 16px;
     }
     .chat-panel {
-        height: auto;
-        min-height: calc(37vh - 236px);
-        padding: 16px;
+        height: 100%;
+        padding: 12px;
+        padding-bottom: 12px;
+        overflow: hidden; /* prevent full scroll */
+    }
+    .messages {
+        flex: 1;
+        overflow-y: auto; /* scroll only here */
+        -webkit-overflow-scrolling: touch;
     }
     .chat-input {
         flex-direction: column;
         display: flex;
         gap: 8px;
+        flex-shrink: 0;
     }
     .chat-input textarea {
         width: 100%;
         height: 80px;
     }
     .chat-top {
-    display: grid
-;
-    grid-template-columns: repeat(1, 2fr);
-    /* align-items: center; */
-    /* justify-content: space-between; */
-    gap: 12px;
-}
+        display: grid;
+        grid-template-columns: repeat(1, 2fr);
+        gap: 12px;
+    }
+    .controls { display: none; } /* hide extra controls */
     .send { width: 100%; }
 }
