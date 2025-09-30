@@ -300,16 +300,16 @@ select, .icon-btn {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* ============== MOBILE FIXES ============== */
+
 @media (max-width: 768px) {
     body { 
         padding: 10px; 
-        overflow: hidden; /* stop body scroll */
+        overflow: hidden; 
     }
     .app {
         grid-template-columns: 1fr;
         grid-template-rows: auto 1fr;
-        height: 100vh; /* full screen */
+        height: 100vh; 
     }
     .sidebar {
         flex-direction: row;
@@ -335,11 +335,11 @@ select, .icon-btn {
         height: 100%;
         padding: 12px;
         padding-bottom: 12px;
-        overflow: hidden; /* prevent full scroll */
+        overflow: hidden; 
     }
     .messages {
         flex: 1;
-        overflow-y: auto; /* scroll only here */
+        overflow-y: auto; 
         -webkit-overflow-scrolling: touch;
     }
     .chat-input {
@@ -357,6 +357,6 @@ select, .icon-btn {
         grid-template-columns: repeat(1, 2fr);
         gap: 12px;
     }
-    .controls { display: none; } /* hide extra controls */
+    .controls { display: none; } 
     .send { width: 100%; }
 }
