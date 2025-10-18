@@ -52,7 +52,7 @@
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    model: "deepseek/deepseek-chat-v3.1:free",
+                    model: "openai/o3-mini",
                     messages: [
                         {
                             content: input,
